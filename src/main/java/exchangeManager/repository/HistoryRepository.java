@@ -1,6 +1,7 @@
 package exchangeManager.repository;
 
 import exchangeManager.model.History;
+
 import java.util.List;
 
 public interface HistoryRepository {

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -17,12 +18,15 @@ public class HistoryRepositoryImpl implements HistoryRepository {
 
     @Override
     public History save(History history) {
-        if(history.isNew()) {
-            entityManager.persist(history);
-            return history;
-        } else {
+
+
+            if (history.isNew()) {
+
+                    entityManager.persist(history);
+                    return history;
+
+            }
             return entityManager.merge(history);
-        }
     }
 
     @Override
@@ -40,5 +44,10 @@ public class HistoryRepositoryImpl implements HistoryRepository {
     @Override
     public List<History> getAll() {
         return entityManager.createQuery(History.GET_ALL, History.class).getResultList();
+    }
+
+    public List<String> getSecId(){
+        List<String> list = new ArrayList<>();
+        return list = entityManager.createQuery("SELECT secid FROM Securities").getResultList();
     }
 }

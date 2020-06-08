@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
 
-@Repository
+@Repository("sec")
 @Transactional
 public class SecuritiesRepositoryImpl implements SecuritiesRepository {
 
@@ -40,5 +40,10 @@ public class SecuritiesRepositoryImpl implements SecuritiesRepository {
     @Override
     public List<Securities> getAll() {
         return entityManager.createQuery(Securities.GET_ALL, Securities.class).getResultList();
+    }
+
+    public List<String> getSecId(){
+        //List<String> list = new ArrayList<>();
+        return entityManager.createQuery("SELECT secid FROM Securities").getResultList();
     }
 }

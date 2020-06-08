@@ -13,6 +13,8 @@ public interface SecuritiesRepository {
     Securities get(int id);
 
     List<Securities> getAll();
+
+    List<String> getSecId();
 }
 
 
