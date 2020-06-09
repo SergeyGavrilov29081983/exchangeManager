@@ -41,7 +41,7 @@ public class XmlParserSecuritiesServiceImpl implements XmlParserSecuritiesServic
             securities.setId(Integer.parseInt(getAttributeValue("id", startElement)));
             securities.setSecid(getAttributeValue("secid", startElement));
             securities.setRegnumber(getAttributeValue("regnumber", startElement));
-            securities.setRegnumber(getAttributeValue("name", startElement));
+            securities.setName(getAttributeValue("name", startElement));
             securities.setEmitent_title(getAttributeValue("emitent_title", startElement));
             list.add(securities);
         }

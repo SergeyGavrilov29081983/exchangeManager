@@ -19,7 +19,7 @@ public class SecuritiesServiceImpl implements SecuritiesService {
 
     @Autowired
     public void setSecuritiesRepository(SecuritiesRepository securitiesRepository) {
-        this.securitiesRepository =securitiesRepository;
+        this.securitiesRepository = securitiesRepository;
     }
 
     @Autowired
@@ -29,10 +29,9 @@ public class SecuritiesServiceImpl implements SecuritiesService {
 
     @Override
     public Securities save(Securities securities) {
-        if (securities.getName().matches("[ А-Яа-я0-9ёЁ]+")) {
-            securities.setName("Sergey");
-            securitiesRepository.save(securities);
-        } else {
+        String name = securities.getName();
+        if (name.matches("[ А-Яа-я0-9ёЁ]+")) {
+
             return securitiesRepository.save(securities);
         }
         return null;
