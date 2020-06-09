@@ -6,12 +6,10 @@ import javax.persistence.*;
 @Table(name = "history")
 @NamedQueries({
         @NamedQuery(name = History.DELETE, query = "DELETE FROM History h WHERE h.secId=:secid"),
-        @NamedQuery(name = History.GET_ALL, query = "SELECT h FROM History h ORDER BY h.secId"),
 })
 public class History {
 
     public static final String DELETE = "History.delete";
-    public static final String GET_ALL = "History.get_all";
 
     @Id
     @Column(name = "secid")
@@ -71,5 +69,16 @@ public class History {
 
     public boolean isNew() {
         return this.secId == null;
+    }
+
+    @Override
+    public String toString() {
+        return "History{" +
+                "secId='" + secId + '\'' +
+                ", tradeDate='" + tradeDate + '\'' +
+                ", numTrades=" + numTrades +
+                ", open=" + open +
+                ", close=" + close +
+                '}';
     }
 }

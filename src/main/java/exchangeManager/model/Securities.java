@@ -7,14 +7,10 @@ import javax.persistence.*;
 @Table(name = "securities")
 @NamedQueries({
         @NamedQuery(name = Securities.DELETE, query = "DELETE FROM Securities s WHERE s.id=:id"),
-        @NamedQuery(name = Securities.GET_ALL, query = "SELECT s FROM Securities s ORDER BY s.name"),
-        @NamedQuery(name = Securities.SECIDLIST, query = "SELECT secid FROM Securities"),
 })
 public class Securities {
 
     public static final String DELETE = "Securities.delete";
-    public static final String GET_ALL = "Securities.get_all";
-    public static final String SECIDLIST = "Securities.secidlist";
 
     @Id
     @Column(name = "id")

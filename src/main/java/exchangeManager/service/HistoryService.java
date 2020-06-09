@@ -10,7 +10,9 @@ import java.util.List;
 
 public interface HistoryService {
 
-        History save(History history) throws ParserConfigurationException, SAXException, XPathExpressionException, IOException;
+        History save(History history);
+
+        void XmlImportToDb() throws ParserConfigurationException, SAXException, XPathExpressionException, IOException;
 
         boolean delete(String secId);
 

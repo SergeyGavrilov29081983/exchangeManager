@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
 
-@Repository("sec")
+@Repository
 @Transactional
 public class SecuritiesRepositoryImpl implements SecuritiesRepository {
 
@@ -17,7 +17,7 @@ public class SecuritiesRepositoryImpl implements SecuritiesRepository {
 
     @Override
     public Securities save(Securities securities) {
-            if(securities.isNew()) {
+        if (securities.isNew()) {
             entityManager.persist(securities);
             return securities;
         } else {
@@ -39,11 +39,10 @@ public class SecuritiesRepositoryImpl implements SecuritiesRepository {
 
     @Override
     public List<Securities> getAll() {
-        return entityManager.createQuery(Securities.GET_ALL, Securities.class).getResultList();
+        return entityManager.createQuery("select s FROM Securities s").getResultList();
     }
 
-    public List<String> getSecId(){
-        //List<String> list = new ArrayList<>();
+    public List<String> getSecId() {
         return entityManager.createQuery("SELECT secid FROM Securities").getResultList();
     }
 }

@@ -1,7 +1,7 @@
-package exchangeManager.util;
-
+package exchangeManager.service;
 
 import exchangeManager.model.History;
+import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -19,13 +19,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
+public class XmlParserHistoryServiceImpl implements XmlParserHistoryService {
 
-public class XmlparserHis {
+    @Override
+    public List<History> xmlHistoryParser(String fileName) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException {
 
-
-    public static List<History> parseXMLfile(String fileName) throws IOException, ParserConfigurationException, SAXException, XPathExpressionException {
-
-        List<History> list = new ArrayList<>();
+        List<History> histories = new ArrayList<>();
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document doc = builder.parse(new FileInputStream(fileName));
@@ -43,9 +43,9 @@ public class XmlparserHis {
             history.setNumTrades(parseDoubleOrNull(getAttributeValue("NUMTRADES", startElement)));
             history.setOpen(parseDoubleOrNull(getAttributeValue("OPEN", startElement)));
             history.setClose(parseDoubleOrNull(getAttributeValue("CLOSE", startElement)));
-            list.add(history);
+            histories.add(history);
         }
-        return list;
+        return histories;
     }
 
     private static String getAttributeValue(String attrName, Element startElement) {
@@ -53,12 +53,12 @@ public class XmlparserHis {
     }
 
     public static double parseDoubleOrNull(String str) {
-       ;
         try {
-            return str!= null ? Double.parseDouble(str) :0;
-        } catch (NumberFormatException ex) {
+            return str != null ? Double.parseDouble(str) : 0;
+        } catch (NumberFormatException ignored) {
 
         }
         return 0;
     }
-    }
+}
+
