@@ -31,7 +31,6 @@ public class SecuritiesServiceImpl implements SecuritiesService {
     public Securities save(Securities securities) {
         String name = securities.getName();
         if (name.matches("[ А-Яа-я0-9ёЁ]+")) {
-
             return securitiesRepository.save(securities);
         }
         return null;
