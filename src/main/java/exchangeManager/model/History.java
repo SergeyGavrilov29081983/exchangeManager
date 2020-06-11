@@ -1,7 +1,9 @@
 package exchangeManager.model;
 
-import javax.persistence.*;
+import org.springframework.stereotype.Component;
 
+import javax.persistence.*;
+@Component
 @Entity
 @Table(name = "history")
 @NamedQueries({

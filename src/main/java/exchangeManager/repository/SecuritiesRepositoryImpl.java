@@ -45,4 +45,6 @@ public class SecuritiesRepositoryImpl implements SecuritiesRepository {
     public List<String> getSecId() {
         return entityManager.createQuery("SELECT secid FROM Securities").getResultList();
     }
+
+
 }

@@ -19,4 +19,6 @@ public interface SecuritiesService {
     Securities get(int id);
 
     List<Securities> getAll();
+
+
 }

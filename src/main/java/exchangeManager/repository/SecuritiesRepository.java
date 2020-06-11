@@ -15,6 +15,8 @@ public interface SecuritiesRepository {
     List<Securities> getAll();
 
     List<String> getSecId();
+
+
 }
 
 
