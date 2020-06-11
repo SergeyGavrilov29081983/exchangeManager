@@ -1,5 +1,6 @@
 package exchangeManager.repository;
 
+import exchangeManager.model.TableEntity;
 import exchangeManager.model.Securities;
 import org.springframework.stereotype.Repository;
 
@@ -44,6 +45,10 @@ public class SecuritiesRepositoryImpl implements SecuritiesRepository {
 
     public List<String> getSecId() {
         return entityManager.createQuery("SELECT secid FROM Securities").getResultList();
+    }
+
+    public List<TableEntity> getDataToTable() {
+        return entityManager.createNativeQuery("SELECT s.id, s.secid, s.regnumber, s.name, s.emitent_title, h.trade_date, h.numtrades, h.open, h.close FROM Securities s, History h", TableEntity.class).getResultList();
     }
 
 

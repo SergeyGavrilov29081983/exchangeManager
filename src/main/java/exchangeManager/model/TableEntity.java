@@ -1,17 +1,19 @@
-package exchangeManager.dto;
+package exchangeManager.model;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class TableEntity {
 
+    @Id
     private Integer id;
     private String secid;
     private String regnumber;
     private String name;
     private String emitent_title;
-    private String tradeDate;
-    private Double numTrades;
+    private String trade_date;
+    private Double numtrades;
     private Double open;
     private Double close;
 
@@ -55,20 +57,21 @@ public class TableEntity {
         this.emitent_title = emitent_title;
     }
 
-    public String getTradeDate() {
-        return tradeDate;
+
+    public String getTrade_date() {
+        return trade_date;
     }
 
-    public void setTradeDate(String tradeDate) {
-        this.tradeDate = tradeDate;
+    public void setTrade_date(String trade_date) {
+        this.trade_date = trade_date;
     }
 
-    public Double getNumTrades() {
-        return numTrades;
+    public Double getNumtrades() {
+        return numtrades;
     }
 
-    public void setNumTrades(Double numTrades) {
-        this.numTrades = numTrades;
+    public void setNumtrades(Double numtrades) {
+        this.numtrades = numtrades;
     }
 
     public Double getOpen() {
@@ -95,8 +98,8 @@ public class TableEntity {
                 ", regnumber='" + regnumber + '\'' +
                 ", name='" + name + '\'' +
                 ", emitent_title='" + emitent_title + '\'' +
-                ", tradeDate='" + tradeDate + '\'' +
-                ", numTrades=" + numTrades +
+                ", tradeDate='" + trade_date + '\'' +
+                ", numTrades=" + numtrades +
                 ", open=" + open +
                 ", close=" + close +
                 '}';

@@ -1,5 +1,6 @@
 package exchangeManager.service;
 
+import exchangeManager.model.TableEntity;
 import exchangeManager.model.Securities;
 import org.xml.sax.SAXException;
 
@@ -20,5 +21,5 @@ public interface SecuritiesService {
 
     List<Securities> getAll();
 
-
+    List<TableEntity> getDataToTableService();
 }

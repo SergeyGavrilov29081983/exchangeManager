@@ -1,5 +1,6 @@
 package exchangeManager.repository;
 
+import exchangeManager.model.TableEntity;
 import exchangeManager.model.Securities;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public interface SecuritiesRepository {
 
     List<String> getSecId();
 
-
+    List<TableEntity> getDataToTable();
 }
 
 

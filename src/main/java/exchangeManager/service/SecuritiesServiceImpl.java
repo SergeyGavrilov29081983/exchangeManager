@@ -1,5 +1,6 @@
 package exchangeManager.service;
 
+import exchangeManager.model.TableEntity;
 import exchangeManager.model.Securities;
 import exchangeManager.repository.SecuritiesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,5 +56,8 @@ public class SecuritiesServiceImpl implements SecuritiesService {
     @Override
     public List<Securities> getAll() {
         return securitiesRepository.getAll();
+    }
+    public List<TableEntity> getDataToTableService() {
+        return securitiesRepository.getDataToTable();
     }
 }
